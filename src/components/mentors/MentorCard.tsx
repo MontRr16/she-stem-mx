@@ -38,12 +38,12 @@ export default function MentorCard({ mentor, index, isSelected, isInState, onSel
   return (
     <article
       onClick={onSelect}
-      className={`group flex h-full min-h-[320px] cursor-pointer flex-col overflow-hidden rounded-3xl border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lift ${
+      className={`group flex h-full min-h-fit cursor-pointer flex-col gap-4 rounded-3xl border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lift ${
         isSelected ? 'border-pastel-turquoise shadow-lift ring-4 ring-pastel-turquoise/25' : 'border-slate-200 shadow-soft'
       }`}
     >
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex items-center gap-4">
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-start gap-3">
           <span
             className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl font-serif text-lg text-ink ${AVATAR_TONES[index % AVATAR_TONES.length]}`}
             aria-hidden
@@ -51,10 +51,10 @@ export default function MentorCard({ mentor, index, isSelected, isInState, onSel
             {initialsOf(mentor.name)}
           </span>
           <div className="min-w-0 flex-1">
-            <h3 className="break-words font-serif text-base leading-[1.25] text-ink sm:text-lg">{mentor.name}</h3>
-            <p className="mt-1 flex items-center gap-1.5 text-sm text-ink-soft">
-              <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden />
-              <span className="truncate">{mentor.city}, {mentor.state}</span>
+            <h3 className="break-words whitespace-normal font-serif text-base leading-[1.3] text-ink sm:text-lg">{mentor.name}</h3>
+            <p className="mt-1 flex items-start gap-1.5 text-sm text-ink-soft">
+              <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
+              <span className="whitespace-normal break-words">{mentor.city}, {mentor.state}</span>
             </p>
           </div>
         </div>
@@ -63,10 +63,10 @@ export default function MentorCard({ mentor, index, isSelected, isInState, onSel
         )}
       </div>
 
-      <p className="mt-5 break-words font-medium leading-[1.5] text-ink">{mentor.specialty}</p>
-      <p className="mt-2 break-words text-sm leading-[1.5] text-ink-soft">{mentor.bio}</p>
+      <p className="break-words whitespace-normal font-medium leading-[1.5] text-ink">{mentor.specialty}</p>
+      <p className="break-words whitespace-normal text-sm leading-[1.5] text-ink-soft">{mentor.bio}</p>
 
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         <span className="flex items-center gap-1.5 rounded-full bg-pastel-sky/40 px-3 py-1 text-xs font-semibold text-ink">
           <GraduationCap className="h-3.5 w-3.5" aria-hidden />
           {LEVEL_BADGE[mentor.level]}
@@ -77,9 +77,9 @@ export default function MentorCard({ mentor, index, isSelected, isInState, onSel
         </span>
       </div>
 
-      <p className="mt-4 break-words text-sm font-medium text-ink-soft">{mentor.institution}</p>
+      <p className="break-words whitespace-normal text-sm font-medium text-ink-soft">{mentor.institution}</p>
 
-      <div className="mt-auto flex flex-wrap gap-2 pt-6">
+      <div className="mt-auto flex flex-wrap gap-2">
         <button
           type="button"
           onClick={(event) => {
