@@ -38,7 +38,7 @@ export default function MentorCard({ mentor, index, isSelected, isInState, onSel
   return (
     <article
       onClick={onSelect}
-      className={`group flex h-full cursor-pointer flex-col rounded-3xl border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lift ${
+      className={`group flex h-full min-h-[320px] cursor-pointer flex-col overflow-hidden rounded-3xl border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lift ${
         isSelected ? 'border-pastel-turquoise shadow-lift ring-4 ring-pastel-turquoise/25' : 'border-slate-200 shadow-soft'
       }`}
     >
@@ -50,13 +50,11 @@ export default function MentorCard({ mentor, index, isSelected, isInState, onSel
           >
             {initialsOf(mentor.name)}
           </span>
-          <div className="min-w-0">
-            <h3 className="font-serif text-lg leading-[1.2] text-ink">{mentor.name}</h3>
+          <div className="min-w-0 flex-1">
+            <h3 className="break-words font-serif text-base leading-[1.25] text-ink sm:text-lg">{mentor.name}</h3>
             <p className="mt-1 flex items-center gap-1.5 text-sm text-ink-soft">
               <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden />
-              <span className="truncate">
-                {mentor.city}, {mentor.state}
-              </span>
+              <span className="truncate">{mentor.city}, {mentor.state}</span>
             </p>
           </div>
         </div>
@@ -65,8 +63,8 @@ export default function MentorCard({ mentor, index, isSelected, isInState, onSel
         )}
       </div>
 
-      <p className="mt-5 font-medium leading-[1.5] text-ink">{mentor.specialty}</p>
-      <p className="mt-2 text-sm leading-[1.5] text-ink-soft">{mentor.bio}</p>
+      <p className="mt-5 break-words font-medium leading-[1.5] text-ink">{mentor.specialty}</p>
+      <p className="mt-2 break-words text-sm leading-[1.5] text-ink-soft">{mentor.bio}</p>
 
       <div className="mt-5 flex flex-wrap gap-2">
         <span className="flex items-center gap-1.5 rounded-full bg-pastel-sky/40 px-3 py-1 text-xs font-semibold text-ink">
@@ -79,7 +77,7 @@ export default function MentorCard({ mentor, index, isSelected, isInState, onSel
         </span>
       </div>
 
-      <p className="mt-4 text-sm font-medium text-ink-soft">{mentor.institution}</p>
+      <p className="mt-4 break-words text-sm font-medium text-ink-soft">{mentor.institution}</p>
 
       <div className="mt-auto flex flex-wrap gap-2 pt-6">
         <button
